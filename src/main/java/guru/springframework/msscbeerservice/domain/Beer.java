@@ -32,11 +32,11 @@ public class Beer {
     @Version
     private Long version;
 
-    @CreationTimestamp
+    @CreationTimestamp //hibernate extension
     @Column(updatable = false)
     private Timestamp createdDate;
 
-    @UpdateTimestamp
+    @UpdateTimestamp //hibernate extension
     private Timestamp lastModifiedDate;
 
     private String beerName;
