@@ -1,6 +1,7 @@
 package guru.springframework.msscbeerservice.services.inventory;
 
 import guru.springframework.msscbeerservice.services.inventory.model.BeerInventoryDto;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -19,6 +20,7 @@ import java.util.UUID;
  */
 @Slf4j
 @ConfigurationProperties(prefix = "sfg.brewery", ignoreUnknownFields = false)
+@RequiredArgsConstructor
 @Component
 public class BeerInventoryServiceRestTemplateImpl implements BeerInventoryService {
 
@@ -31,9 +33,7 @@ public class BeerInventoryServiceRestTemplateImpl implements BeerInventoryServic
         this.beerInventoryServiceHost = beerInventoryServiceHost;
     }
 
-    public BeerInventoryServiceRestTemplateImpl(RestTemplateBuilder restTemplateBuilder) {
-        this.restTemplate = restTemplateBuilder.build();
-    }
+
 
     @Override
     public Integer getOnhandInventory(UUID beerId) {
